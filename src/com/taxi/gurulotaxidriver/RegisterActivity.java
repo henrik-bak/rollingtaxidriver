@@ -42,7 +42,6 @@ public class RegisterActivity  extends Activity {
 	CheckBox cb_airconditioned;
 	Integer parsedSize;
 	Integer parsedLicense;
-	private JsonResponse response;
 
 	AlertDialogManager alert = new AlertDialogManager();
 	ConnectionDetector cd;
@@ -100,18 +99,6 @@ public class RegisterActivity  extends Activity {
 							new TaxiDTO(et_name.getText().toString(), parsedSize, cb_airconditioned.isChecked(), et_companyName.getText().toString()));
 					RegDriverSrv reg = new RegDriverSrv(getApplicationContext(), driverDTO);
 					reg.execute();
-					if (response.getStatus().equals("SUCCESS")) {
-
-						Gson gson = new Gson();
-						
-						Intent i = new Intent( RegisterActivity.this, MainActivity.class);
-						Taxidriver driver = gson.fromJson(response.getData().toString(), Taxidriver.class);
-						i.putExtra("driverId", driver.getIdTaxiDriver());
-						startActivity(i);
-					} else {
-						Log.d("MAUNIKA", "failed");
-						Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
-					}
 				}
 
 			}
@@ -245,8 +232,18 @@ public class RegisterActivity  extends Activity {
 			if (dialog.isShowing()) {
 				dialog.dismiss();
 			}
-			Log.d("MAUNIKA", result.toString());
-			response = result;
+			if (result.getStatus().equals("SUCCESS")) {
+
+				Gson gson = new Gson();
+				
+				Intent i = new Intent( RegisterActivity.this, MainActivity.class);
+				Taxidriver driver = gson.fromJson(result.getData().toString(), Taxidriver.class);
+				i.putExtra("driverId", driver.getIdTaxiDriver());
+				startActivity(i);
+			} else {
+				Log.d("MAUNIKA", "failed");
+				Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 }

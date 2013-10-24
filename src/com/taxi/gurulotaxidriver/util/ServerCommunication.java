@@ -23,8 +23,8 @@ public class ServerCommunication {
 		DefaultHttpClient client = new DefaultHttpClient();
 		
 		HttpParams httpParameters = new BasicHttpParams();
-		int timeoutConnection = 2000;
-		int timeoutSocket = 3000;
+		int timeoutConnection = 5;
+		int timeoutSocket = 10;
 		
 		HttpConnectionParams.setConnectionTimeout(httpParameters, timeoutConnection * 1000);
 		HttpConnectionParams.setSoTimeout        (httpParameters, timeoutSocket * 1000);
