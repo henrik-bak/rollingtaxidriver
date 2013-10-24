@@ -14,8 +14,7 @@ import android.os.PowerManager;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.taxi.gurulotaxidriver.LoginActivity;
-import com.taxi.gurulotaxidriver.MainActivity;
+import com.taxi.gurulotaxidriver.OrderActivity;
 import com.taxi.gurulotaxidriver.model.Taxiorder;
 
 public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
@@ -44,7 +43,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 			Gson gson = new Gson();
 			Taxiorder order = gson.fromJson(response.getData().toString(), Taxiorder.class);
 			
-			Intent i =  new Intent(context, MainActivity.class);
+			Intent i =  new Intent(context, OrderActivity.class);
 			i.putExtra("Taxiorder", order);
 			context.startActivity(i);
 			
@@ -107,48 +106,4 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 			response=result;
 		}
 	}	// End of class SearchSrv here
-	
-	private class OrderSrv extends AsyncTask<Void, Void, JsonResponse>{
-
-		private String orderId;
-		private String action;
-
-		public OrderSrv(String orderId, String action) {
-			this.orderId = orderId;
-			this.action = action;
-		}
-
-		@Override
-		protected JsonResponse doInBackground(Void... params) {
-			JsonResponse resp = null;
-			try {
-				ServerCommunication comm = new ServerCommunication();
-				InputStream source;
-				if (action.equals("ACCEPT")) {
-					source = comm.postStream(ServerUtilities.SERVER_ADDRESS+"/order/acceptOrder?id="+orderId,null);
-				} else {
-					source = comm.postStream(ServerUtilities.SERVER_ADDRESS+"/order/declineOrder?id="+orderId,null);
-				}
-        
-		        Gson gson = new Gson();
-		        
-		        Reader reader = new InputStreamReader(source);
-		        
-		        resp = gson.fromJson(reader, JsonResponse.class);
-		        
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return resp;
-		}
-
-		@Override
-		protected void onPostExecute(JsonResponse result) {
-			super.onPostExecute(result);
-			
-			Log.d("MAUNIKA", result.toString());
-			response=result;
-		}
-	}	// End of class SearchSrv here
-
 }
