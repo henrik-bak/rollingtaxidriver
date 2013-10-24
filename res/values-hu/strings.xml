@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GurulóTaxi Sofőr</string>
+    <string name="login_success">Sikeres belépés!</string>
+    <string name="login_failed_pwd">Sikertelen belépés - érvénytelen jelszó!</string>
+    <string name="login_failed_user">Sikertelen belépés - érvénytelen felhasználónév!</string>
+    <string name="login_failed_driver">Sikertelen belépés - érvénytelen sofőr!</string>
+    <string name="login_failed_license">Sikertelen belépés - érvénytelen licensz!</string>
+    <string name="login_mail_hint">Email cím</string>
+    <string name="login_pwd_hint">Jelszó</string>
+    <string name="login_login_btn">Belépés</string>
+    <string name="login_reg_expl">Ha nincs még regisztrációd, regisztrálj!</string>
+    <string name="login_register_btn">Regisztráció</string>
+    <string name="back_btn">Vissza</string>
+    <string name="register_mail_hint">Email cím</string>
+    <string name="register_fname_hint">Keresztnév</string>
+    <string name="register_lname_hint">Vezetéknév</string>
+    <string name="register_pwd1_hint">Jelszó</string>
+    <string name="register_pwd2_hint">Jelszó megerősítése</string>
+    <string name="register_phone_hint">telefonszám</string>
+    <string name="register_title">Regisztráció</string>
+</resources>

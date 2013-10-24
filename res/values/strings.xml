@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">gurulotaxi_driver</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+        <string name="login_success">Login successful!</string>
+    <string name="login_failed_pwd">Login failed - invalid password!</string>
+    <string name="login_failed_user">Login failed - invalid username!</string>
+    <string name="login_failed_driver">Login failed - invalid driver!</string>
+    <string name="login_failed_license">Login failed - no license!</string>
+    <string name="login_mail_hint">Your email address</string>
+    <string name="login_pwd_hint">Password</string>
+    <string name="login_login_btn">Login</string>
+    <string name="login_reg_expl">If you don\'t have an account - please register!</string>
+    <string name="login_register_btn">Register</string>
+    
+    <string name="back_btn">Back</string>
+    
+    <string name="register_mail_hint">Email address</string>
+    <string name="register_fname_hint">First name</string>
+    <string name="register_lname_hint">Last name</string>
+    <string name="register_pwd1_hint">Password</string>
+    <string name="register_pwd2_hint">Confirm password</string>
+    <string name="register_phone_hint">Phone number</string>
+    <string name="register_title">Register</string>
+
+</resources>
